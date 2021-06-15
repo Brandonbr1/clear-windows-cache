@@ -60,6 +60,7 @@ net start bits
 net start msiserver
 %windir%\system32\rundll32.exe advapi32.dll,ProcessIdleTasks
 cleanmgr.exe
+ms-settings:storagesense
 echo.
 echo Task completed successfully…
 echo.
