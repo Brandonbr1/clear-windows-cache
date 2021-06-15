@@ -59,6 +59,7 @@ net start cryptSvc
 net start bits
 net start msiserver
 %windir%\system32\rundll32.exe advapi32.dll,ProcessIdleTasks
+cleanmgr.exe
 echo.
 echo Task completed successfully…
 echo.
