@@ -16,15 +16,17 @@ md %windir%\temp
 del /s /f /q %windir%\Prefetch*.*
 rd /s /q %windir%\Prefetch
 md %windir%\Prefetch
+:: remove dllcache
 del /s /f /q %windir%\system32\dllcache*.*
 rd /s /q %windir%\system32\dllcache
 md %windir%\system32\dllcache
-del /s /f /q “%SysteDrive%\Temp”*.*
-rd /s /q “%SysteDrive%\Temp”
-md “%SysteDrive%\Temp”
+del /s /f /q “%SystemDrive%\Temp”*.*
+rd /s /q “%SystemDrive%\Temp”
+md “%SystemDrive%\Temp”
 del /s /f /q %temp%*.*
 rd /s /q %temp%
 md %temp%
+:: delete internet files
 del /s /f /q “%USERPROFILE%\Local Settings\History”*.*
 rd /s /q “%USERPROFILE%\Local Settings\History”
 md “%USERPROFILE%\Local Settings\History”
@@ -40,6 +42,7 @@ md “%USERPROFILE%\Recent”
 del /s /f /q “%USERPROFILE%\Cookies”*.*
 rd /s /q “%USERPROFILE%\Cookies”
 md “%USERPROFILE%\Cookies”
+:: grants  it premission so it can delete 
 takeown /F C:\Windows.old* /R /A
 pause
 cacls C:\Windows.old*.* /T /grant administrators:F
@@ -48,6 +51,7 @@ rmdir /S /Q C:\Windows.old\
 echo.
 attrib -h -r -s %windir%\system32\catroot2
 attrib -h -r -s %windir%\system32\catroot2.
+::stop windows services
 net stop wuauserv
 net stop cryptSvc
 net stop bits
