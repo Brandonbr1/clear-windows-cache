@@ -1,4 +1,5 @@
 @echo off
+:remove stuff from the temp, prefetch, cookies, %temp% and history
 del /s /f /q c:\windows\temp\*.*
 del /s /f /q C:\WINDOWS\Prefetch
 del /s /f /q %temp%\*.*
