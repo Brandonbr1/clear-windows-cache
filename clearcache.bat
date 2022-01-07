@@ -1,5 +1,5 @@
 @echo off
-:remove stuff from the temp, prefetch, cookies, %temp% and history
+:: remove stuff from the temp, prefetch, cookies, %temp% and history
 del /s /f /q c:\windows\temp\*.*
 del /s /f /q C:\WINDOWS\Prefetch
 del /s /f /q %temp%\*.*
@@ -52,7 +52,7 @@ rmdir /S /Q C:\Windows.old\
 echo.
 attrib -h -r -s %windir%\system32\catroot2
 attrib -h -r -s %windir%\system32\catroot2.
-::stop windows services
+::stop windows services so it can delete
 net stop wuauserv
 net stop cryptSvc
 net stop bits
@@ -64,6 +64,7 @@ net start cryptSvc
 net start bits
 net start msiserver
 %windir%\system32\rundll32.exe advapi32.dll,ProcessIdleTasks
+:: runs 2 of the defalut windows cleaning app
 cleanmgr.exe
 ms-settings:storagesense
 echo.
